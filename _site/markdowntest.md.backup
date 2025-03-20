@@ -1,11 +1,46 @@
----
-layout: default
-title: My Page Title
----
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Page Title - test</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+      /* Default Light Mode Styles */
+      body {
+        background-color: white;
+        color: black;
+        transition: background-color 0.3s, color 0.3s;
+      }
 
+      /* Dark Mode Styles */
+      .dark-mode {
+        background-color: #121212;
+        color: white;
+      }
 
+      /* Dark Mode Toggle Button Styling */
+      #dark-mode-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
 
-An h1 header
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <!-- Main Content of the Page -->
+    <main>
+      An h1 header
 ============
 
 Paragraphs are separated by a blank line.
@@ -162,3 +197,30 @@ $$I = \int \rho R^{2} dV$$
 
 And note that you can backslash-escape any punctuation characters
 which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
+    </main>
+
+    <script>
+      // Check for dark mode preference in localStorage on page load
+      window.onload = function() {
+        if (localStorage.getItem("darkMode") === "enabled") {
+          document.body.classList.add("dark-mode");
+        }
+      };
+
+      // Function to toggle dark mode and save the preference
+      function toggleDarkMode() {
+        var bodyElement = document.body;
+        bodyElement.classList.toggle("dark-mode");
+
+        // Save the dark mode preference in localStorage
+        if (bodyElement.classList.contains("dark-mode")) {
+          localStorage.setItem("darkMode", "enabled");
+        } else {
+          localStorage.setItem("darkMode", "disabled");
+        }
+      }
+    </script>
+
+  </body>
+</html>
+

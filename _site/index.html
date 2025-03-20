@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <style>
+
+    body {
+      background-color: white;
+      color: black;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    #dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 1000;  
+    }
+  </style>
     <link rel="icon" type="image/webp" href="favicon.webp">
   </head>
     <body>
+      <button id="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
       <div class="container">
         <div class="navigation-bar"> 
           <h1> <b> <u> <i> Navigation </i> </u> </b> </h1>
@@ -45,6 +72,25 @@
           </div>
           <div class="updates"> </div>
       </div>
+      <script>
+    window.onload = function() {
+      if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+
+
+    function toggleDarkMode() {
+      var bodyElement = document.body;
+      bodyElement.classList.toggle("dark-mode");
+
+      if (bodyElement.classList.contains("dark-mode")) {
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        localStorage.setItem("darkMode", "disabled");
+      }
+    }
+  </script>
     </body>
 </html>
  

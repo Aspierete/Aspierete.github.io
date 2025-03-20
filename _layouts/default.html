@@ -1,12 +1,70 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
   <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <style>
+      /* Default Light Mode Styles */
+      body {
+        background-color: white;
+        color: black;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      /* Dark Mode Styles */
+      .dark-mode {
+        background-color: #121212;
+        color: white;
+      }
+
+      /* Dark Mode Toggle Button Styling */
+      #dark-mode-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
-    {{ content }}
+
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <!-- Main Content of the Page -->
+    <main>
+      {{ content }}
+    </main>
+
+    <script>
+      // Check for dark mode preference in localStorage on page load
+      window.onload = function() {
+        if (localStorage.getItem("darkMode") === "enabled") {
+          document.body.classList.add("dark-mode");
+        }
+      };
+
+      // Function to toggle dark mode and save the preference
+      function toggleDarkMode() {
+        var bodyElement = document.body;
+        bodyElement.classList.toggle("dark-mode");
+
+        // Save the dark mode preference in localStorage
+        if (bodyElement.classList.contains("dark-mode")) {
+          localStorage.setItem("darkMode", "enabled");
+        } else {
+          localStorage.setItem("darkMode", "disabled");
+        }
+      }
+    </script>
+
   </body>
 </html>
+
