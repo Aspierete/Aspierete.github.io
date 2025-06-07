@@ -1,96 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <style>
-
-    body {
-      background-color: white;
-      color: black;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .dark-mode {
-      background-color: #121212;
-      color: white;
-    }
-
-    #dark-mode-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px;
-      background-color: #333;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      z-index: 1000;  
-    }
-  </style>
-    <link rel="icon" type="image/webp" href="favicon.webp">
   </head>
     <body>
-      <button id="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-      <div class="container">
         <div class="navigation-bar"> 
-          <h1> <b> <u> <i> Navigation </i> </u> </b> </h1>
-            <div class="nav-content">
-              <nav> 
-		      <h2> Programming </h2>
-                <a href="game"> Game</a> |
-                <a href="graphics-programming.html"> Graphics</a> |
-                <a href="resources"> Resources</a> 
-                <h2> GameDev </h2>
-                <a href="game-design"> Game Design</a> |
-                <a href="Devlogs"> Devlogs</a> |
-                <h2> Personal </h2>
-                <a href="about"> About</a> |
-                <a href="journal"> Journal</a> |
-                <a href="personal-plan.txt"> Plan </a> 
-                <a href="markdowntest.html"> Markdown Test </a>
-                <a href="markdown2.html"> Markdown 2 </a>
-                <h3> Portfolio </h3>
-                <a href="personal-projects"> Personal Projects</a> |
-                <a href="Gamejams"> Game Jams</a> |
-                <a href="Professional"> Profesional Experiences</a> |
-                <a href="contact"> Contact</a> 
+          <h1> <b> <u> <i> Ataberk's GameDev Space </i> </u> </b> </h1>
+              <nav>
+              <ul>
+                <li><a href="professional-experiences"> Professional Experiences </a>
+                <li><a href="game-jams"> Game Jams </a>
+              </ul>
               </nav>
             </div>
         </div>
           <div class="welcome-grid">
             <div class="welcome-content">
               <h1> Welcome!</h1>
-	      <p> Android Test </p>
               <p> Hello, hitchhiker of the internet! Welcome to my website. </p>
-              <p> This is my personal wiki. I'll post my thoughts, feelings, and knowledge on my interests and experiences. </p>
-              <p> I plan to mostly write about programming, specifically graphics and video games. However, since this page is about me, you can find anything that I'm interested in &mdash;from Rubik's cubes and games to daily feelings, politics, philosophy, etc. </p>
-              <p> I've wanted to create a blog for the last couple of years, but reasons like lack of confidence, laziness, depression, etc., have kept me from doing it. Finally, I'm here. I am also happy to find an alternative to modern social media. I'm really tired of censorship, hateful comments, echo chambers, and many more negative impacts that social media has brought. This website &mdash;like the rest of similar websites&mdash; is an alternative to the centralization of the internet. Another purpose of this website is to share pure knowledge from my areas of interest because, nowadays, thanks to generative AI content, finding useful and correct information is almost impossible.</p>
+              <p> I am an indie game developer who is interested in system design and production. Lately, I've been diving into graphics programming and am currently learning OpenGL. <br> I’m also working on creating a game development collective for individuals who are unemployed, hobbyists looking to monetize their games, or those who want to avoid corporate jobs and pursue the indie game development adventure. <br> In addition, I'm building an online hackerspace focused mainly on, but not limited to, game development technologies. On this site, I’ll be sharing my experiences on these journeys.</p>
               <p> I hope you enjoy exploring my website. Have a great day! </p>
               <p> <i><q> You never change things by fighting the existing reality.
                   To change something, build a new model that makes the existing model obsolete.</q> <br>
                   <span style="margin-left: 50%;"> - Buckminster Fuller </span> </i> </p>
           </div>
           </div>
-          <div class="updates"> </div>
       </div>
-      <script>
-    window.onload = function() {
-      if (localStorage.getItem("darkMode") === "enabled") {
-        document.body.classList.add("dark-mode");
-      }
-    };
-
-
-    function toggleDarkMode() {
-      var bodyElement = document.body;
-      bodyElement.classList.toggle("dark-mode");
-
-      if (bodyElement.classList.contains("dark-mode")) {
-        localStorage.setItem("darkMode", "enabled");
-      } else {
-        localStorage.setItem("darkMode", "disabled");
-      }
-    }
-  </script>
     </body>
 </html>
